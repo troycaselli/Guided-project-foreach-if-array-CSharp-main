@@ -17,7 +17,9 @@ Console.WriteLine("Student\t\tGrade\n");
 foreach (string name in studentNames)
 {
     string currentStudent = name;
+    string studentLetterGrade = "";
 
+    // set student score values
     if (currentStudent == "Sophia")
         studentScores = sophiaScores;
     else if (currentStudent == "Andrew")
@@ -27,46 +29,53 @@ foreach (string name in studentNames)
     else
         studentScores = loganScores;
 
-        int scoresSum = 0;
-        foreach (int score in studentScores)
-        {
-            scoresSum += score;
-        }
+    // find average student score
+    int scoresSum = 0;
+    foreach (int score in studentScores)
+    {
+        scoresSum += score;
+    }
+    decimal studentScore = (decimal)scoresSum / totalAssignments;
 
-        decimal studentScore = (decimal)scoresSum / totalAssignments;
-        Console.WriteLine(currentStudent + ":\t\t" + studentScore);
+    // determine student letter grade
+    if (studentScore >= 97)
+        studentLetterGrade = "A+";
 
-    // int andrewSum = 0;
-    // int emmaSum = 0;
-    // int loganSum = 0;
+    else if (studentScore >= 93)
+        studentLetterGrade = "A";
 
-    // decimal andrewScore;
-    // decimal emmaScore;
-    // decimal loganScore;
+    else if (studentScore >= 90)
+        studentLetterGrade = "A-";
 
-    // foreach (int score in andrewScores)
-    // {
-    //     andrewSum += score;
-    // }
-    // foreach (int score in emmaScores)
-    // {
-    //     emmaSum += score;
-    // }
-    // foreach (int score in loganScores)
-    // {
-    //     loganSum += score;
-    // }
+    else if (studentScore >= 87)
+        studentLetterGrade = "B+";
 
-    // andrewScore = (decimal)andrewSum / currentAssignments;
-    // emmaScore = (decimal)emmaSum / currentAssignments;
-    // loganScore = (decimal)loganSum / currentAssignments;
+    else if (studentScore >= 83)
+        studentLetterGrade = "B";
 
-    // Console.WriteLine("Andrew:\t\t" + andrewScore + "\tB+");
-    // Console.WriteLine("Emma:\t\t" + emmaScore + "\tB");
-    // Console.WriteLine("Logan:\t\t" + loganScore + "\tA-");
+    else if (studentScore >= 80)
+        studentLetterGrade = "B-";
+
+    else if (studentScore >= 77)
+        studentLetterGrade = "C+";
+
+    else if (studentScore >= 73)
+        studentLetterGrade = "C";
+
+    else if (studentScore >= 70)
+        studentLetterGrade = "C-";
+
+    else if (studentScore >= 67)
+        studentLetterGrade = "D+";
+
+    else if (studentScore >= 63)
+        studentLetterGrade = "D";
+
+    else if (studentScore >= 60)
+        studentLetterGrade = "D-";
+    else
+        studentLetterGrade = "F";
+
+
+    Console.WriteLine($"{currentStudent}:\t\t{studentScore}\t{studentLetterGrade}");
 }
-
-
-
-Console.WriteLine("Press the Enter key to continue");
-// Console.ReadLine();
